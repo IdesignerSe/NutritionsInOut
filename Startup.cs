@@ -7,6 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using NutritionsInOut.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,6 +33,7 @@ namespace NutritionsInOut
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "NutritionsInOut", Version = "v1" });
             });
+            services.AddDbContext<ProgramHabitContext>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -52,7 +54,9 @@ namespace NutritionsInOut
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllers();
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller=ProgramHabits}/{action=Index}/{id?}");
             });
         }
     }
