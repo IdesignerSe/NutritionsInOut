@@ -1,5 +1,5 @@
  Proof of concept:
-             1.        A database driven web application using MVC
+ 1. A database driven web application using MVC
 
 The Idea is to buil the prood of concept for a dietary program. 
 Program your eating habits. Base in the existing ground diets types.
